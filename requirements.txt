@@ -1,0 +1,8 @@
+pandas
+numpy
+tqdm
+scikit-learn
+sentence-transformers
+faiss-cpu
+rank_bm25
+pyarrow
