@@ -188,20 +188,37 @@ Submission is valid.
 ```
 
 ---
-## 📦 Note on Large Files
+
+## 📦 Note on Excluded Files
 
 The following files are excluded from this repository due to GitHub's 100 MB file size limit:
 
-- `data/candidates.jsonl` (~465 MB) — provided by the challenge organizers
-- `artifacts/*.npy`, `artifacts/*.index`, `artifacts/*.pkl` (~480 MB) — regenerable artifacts
+- `data/candidates.jsonl` (~465 MB) — provided by challenge organizers
+- `artifacts/*.npy`, `artifacts/*.index`, `artifacts/*.pkl` (~480 MB) — pre-computed artifacts
 
-To regenerate the artifacts after cloning:
+### To reproduce the submission:
+
+**Step 1:** Place `candidates.jsonl` (provided by organizers) in the `data/` folder.
+
+**Step 2:** Run Phase 1 to build embeddings + indexes (~10 minutes on a modern laptop):
 
 ```bash
-# Place candidates.jsonl in data/
-python -m scripts.build_artifacts    # ~3 hours
-python -m src.generate_submission     # ~2 minutes
+python -m scripts.build_artifacts
 ```
+
+**Step 3:** Run Phase 2 to generate the ranked CSV (~2 minutes):
+
+```bash
+python -m src.generate_submission
+```
+
+**Step 4:** Validate the submission:
+
+```bash
+python validate_submission.py output/submission.csv
+```
+
+The pre-built `output/submission.csv` is included in this repo and is ready for evaluation.
 
 ---
 
