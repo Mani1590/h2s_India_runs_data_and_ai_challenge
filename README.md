@@ -201,6 +201,7 @@ To regenerate the artifacts after cloning:
 # Place candidates.jsonl in data/
 python -m scripts.build_artifacts    # ~3 hours
 python -m src.generate_submission     # ~2 minutes
+```
 
 ---
 
