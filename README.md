@@ -188,6 +188,21 @@ Submission is valid.
 ```
 
 ---
+## 📦 Note on Large Files
+
+The following files are excluded from this repository due to GitHub's 100 MB file size limit:
+
+- `data/candidates.jsonl` (~465 MB) — provided by the challenge organizers
+- `artifacts/*.npy`, `artifacts/*.index`, `artifacts/*.pkl` (~480 MB) — regenerable artifacts
+
+To regenerate the artifacts after cloning:
+
+```bash
+# Place candidates.jsonl in data/
+python -m scripts.build_artifacts    # ~3 hours
+python -m src.generate_submission     # ~2 minutes
+
+---
 
 ## 🛠️ Tech Stack
 
